@@ -12,10 +12,10 @@ if __name__ == "__main__":
 		config_parser.add_section('AppInfo')
 
 		#let's add config information under this section
-		config_parser.set('AppInfo', 'id', 123)
-		config_parser.set('AppInfo', 'gpio', 2)
+		config_parser.set('AppInfo', 'id', '123')
+		config_parser.set('AppInfo', 'gpio', '2')
 		config_parser.set('AppInfo', 'debug_switch', 'True')
-		config_parser.set('AppInfo', 'sensor_address', 0x62)
+		config_parser.set('AppInfo', 'sensor_address', '0x62')
 
 		#Let's add another section for credentials
 		config_parser.add_section('Credentials')
