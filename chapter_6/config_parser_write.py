@@ -4,7 +4,7 @@ import configParser
 
 if __name__ == "__main__":
 	# initialize ConfigParser
-	config_parser = configParser.configParser()
+	config_parser = configparser.configparser()
 
 	# Let's create a config file
 	with open('raspi.cfg', 'w') as config_file:
