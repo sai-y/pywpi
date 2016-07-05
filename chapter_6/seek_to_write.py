@@ -4,6 +4,7 @@
 if __name__ == "__main__":
 	# open text file to read and write
 	file = open('write_file.txt', 'r+')
+	print(file.read())
 	
 	# set the pointer to the desired position
 	file.seek(68)
