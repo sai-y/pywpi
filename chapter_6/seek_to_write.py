@@ -7,9 +7,9 @@ if __name__ == "__main__":
 	file = open('write_file.txt', 'r+')
 	
 	# read the second line from the file 
-	file.seek(53)
+	file.seek(68)
 	
-	file.write('Hello')
+	file.write('that was modified')
 	
 	data = file.read()
 	print(data)
