@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import configParser
+import configparser
 
 if __name__ == "__main__":
 	# initialize ConfigParser
