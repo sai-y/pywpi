@@ -8,9 +8,7 @@ if __name__ == "__main__":
 	
 	# read the second line from the file 
 	file.seek(53)
-	data = file.read()
-	print(data)
-
+	
 	file.write('Hello')
 	
 	data = file.read()
