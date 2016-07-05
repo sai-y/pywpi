@@ -6,11 +6,12 @@ if __name__ == "__main__":
 
 	file = open('write_file.txt', 'r+')
 	
-	# read the second line from the file 
+	# set the pointer to the desired position
 	file.seek(68)
+	file.write('that was modified   ')
 	
-	file.write('that was modified')
-	
+	# rewind the pointer to the beginning of the file 
+	file.seek(0)
 	data = file.read()
 	print(data)
 	file.close()
