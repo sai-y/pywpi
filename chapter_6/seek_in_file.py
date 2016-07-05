@@ -8,7 +8,7 @@ if __name__ == "__main__":
 	
 	# read a line from the file 
 	file.write('This is a line appended to the file\n')
-	file.seek(5)
+	file.seek(54)
 	
 	data = file.read()
 	print(data)
