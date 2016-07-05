@@ -6,8 +6,7 @@ if __name__ == "__main__":
 
 	file = open('write_file.txt', 'r')
 	
-	# read a line from the file 
-	file.write('This is a line appended to the file\n')
+	# read the second line from the file 
 	file.seek(54)
 	
 	data = file.read()
