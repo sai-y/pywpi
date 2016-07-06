@@ -8,5 +8,5 @@ if __name__ == "__main__":
 		csv_reader = csv.reader(csv_file)
 
 		for row in csv_reader:
-			print row
+			print(row)
 
