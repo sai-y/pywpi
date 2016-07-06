@@ -8,12 +8,10 @@ if __name__ == "__main__":
 
 	# Let's create a config file
 	with open('raspi.cfg', 'r') as config_file:
-		
-
 		#let's read constants from the App Info section
-		device_id = config_parser.set('AppInfo', 'id')
-		debug_switch = config_parser.set('AppInfo', 'debug_switch')
-		sensor_address = config_parser.set('AppInfo', 'sensor_address')
+		device_id = config_parser.get('AppInfo', 'id')
+		debug_switch = config_parser.get('AppInfo', 'debug_switch')
+		sensor_address = config_parser.get('AppInfo', 'sensor_address')
 
 		# execute the code if the debug switch is true
 		if debug_switch == "True": 
