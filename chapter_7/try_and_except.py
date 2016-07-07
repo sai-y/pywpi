@@ -7,4 +7,4 @@ if __name__ == "__main__":
 		if val > 0 and val < 10: 
 			print("The value is valid")
 	except ValueError as error: 
-		print("The value is invalid" + error)
+		print("The value is invalid %s" % error)
