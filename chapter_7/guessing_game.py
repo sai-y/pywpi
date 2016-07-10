@@ -15,6 +15,10 @@ if __name__ == "__main__":
             break
         
         input_value = int(value)
+
+        if input_value < 0 or input_value > 10:
+            print("Input invalid. Enter a number between 0 and 9.")
+
         
         if input_value == rand_num:
             print("Your guess is correct! You win!")
