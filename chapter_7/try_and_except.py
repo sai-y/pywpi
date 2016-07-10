@@ -14,7 +14,7 @@ if __name__ == "__main__":
             print("Thanks for playing! Bye!")
 
         try:
-            input_num = int(value)
+            input_value = int(value)
 
             if input_value == rand_num:
                 print("Your guess is correct! You win!")
