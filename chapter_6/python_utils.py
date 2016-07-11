@@ -19,6 +19,7 @@ if __name__ == "__main__":
     #remove a file
     os.remove('/home/pi/Desktop/code_samples/read_file.txt')
 
+    # Note: Change the process id to the one that you would like to kill
     try:
         os.kill(1815, signal.SIGKILL)
     except OSError as error:
