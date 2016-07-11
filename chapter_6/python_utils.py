@@ -14,3 +14,6 @@ if __name__ == "__main__":
         print('The directory exists!')
     else:
         print('The directory does not exist!')
+
+    #remove a file
+    os.remove('/home/pi/Desktop/code_samples/read_file.txt')
