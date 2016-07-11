@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import os
+import signal
 
 if __name__ == "__main__":
     # Check if file exists
