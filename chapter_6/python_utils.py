@@ -17,3 +17,8 @@ if __name__ == "__main__":
 
     #remove a file
     os.remove('/home/pi/Desktop/code_samples/read_file.txt')
+
+    try:
+        os.kill(1815, signal.SIGKILL)
+    except OSError as error:
+        print("OS Error " + str(error))
