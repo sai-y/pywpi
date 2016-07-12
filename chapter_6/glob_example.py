@@ -7,5 +7,5 @@ if __name__ == "__main__":
     for file in glob.glob('*.py'):
     	print(file)
 
-    for file in glob.glob('file1[0-9][0-9].txt'):
+    for file in glob.glob('txt_files/file1[0-9][0-9].txt'):
     	print(file)
