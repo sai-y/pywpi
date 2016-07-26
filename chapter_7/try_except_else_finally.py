@@ -4,6 +4,7 @@ import random
 
 if __name__ == "__main__":
     count = 0
+    valid_input_count = 0
     while True:
         # generate a random number between 0 and 9
         rand_num = random.randrange(0,10)
@@ -19,12 +20,14 @@ if __name__ == "__main__":
         except ValueError as error: 
             print("The value is invalid %s" % error)
         else:
+            valid_input_count += 1
             if input_value < 0 or input_value > 10:
                 print("Input invalid. Enter a number between 0 and 9.")
 
             if input_value == rand_num:
                 print("Your guess is correct! You win!")
-                print("You won the game in %d attempts" % count)
+                print("You won the game in %d"\
+                    "and %d inputs were valid" % (count, valid_input_count))
                 break
             else:
                 print("Nope! The random value was %s" % rand_num)
