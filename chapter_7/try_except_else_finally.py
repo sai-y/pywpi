@@ -20,11 +20,11 @@ if __name__ == "__main__":
         except ValueError as error: 
             print("The value is invalid %s" % error)
         else:
-            valid_count += 1
             if input_value < 0 or input_value > 10:
                 print("Input invalid. Enter a number between 0 and 9.")
                 continue
-
+            
+            valid_count += 1   
             if input_value == rand_num:
                 print("Your guess is correct! You win!")
                 break
