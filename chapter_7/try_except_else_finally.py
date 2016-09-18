@@ -23,6 +23,7 @@ if __name__ == "__main__":
             valid_count += 1
             if input_value < 0 or input_value > 10:
                 print("Input invalid. Enter a number between 0 and 9.")
+                continue
 
             if input_value == rand_num:
                 print("Your guess is correct! You win!")
@@ -33,4 +34,4 @@ if __name__ == "__main__":
             count += 1
 
     print("You won the game in %d"\
-          "and %d inputs were valid" % (count, valid_input_count))
+          "and %d inputs were valid" % (count, valid_count))
