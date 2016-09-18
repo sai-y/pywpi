@@ -33,5 +33,5 @@ if __name__ == "__main__":
         finally:
             count += 1
 
-    print("You won the game in %d"\
+    print("You won the game in %d attempts "\
           "and %d inputs were valid" % (count, valid_count))
