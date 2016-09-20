@@ -4,5 +4,5 @@ from urllib import request
 
 
 # access google.com
-with request.urlopen('time.nist.gov') as response:
+with request.urlopen('http://time.nist.gov') as response:
   print(response.read())
