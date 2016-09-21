@@ -7,5 +7,5 @@ if __name__ == "__main__":
   try:
     response = requests.get('http://nist.time.gv/actualtime.cgi')
     print(response.read())
-  except requests.HTTPError as error:
+  except requests.exceptions.ConnectionError as error:
     print("Something went wrong. Try again")
