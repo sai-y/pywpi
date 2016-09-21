@@ -3,7 +3,7 @@
 import requests
 import json
 
-URL = 'https://hooks.slack.com/servics/T0GUKRE5B/B2E7FEHJS/qjHqzJpRxAUl8btnWKts1lYA'
+URL = 'https://hooks.slack.com/services/'
 
 if __name__ == "__main__":
   payload = {"text": "The cat door was just opened!"}
