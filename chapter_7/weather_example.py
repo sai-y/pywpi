@@ -5,7 +5,7 @@ import json
 
 # generate your own url
 APP_ID = '5d6f02fd4472611a20f4ce602010ee0c'
-URL = "http://api.openweathermap.org/data/2.5/weather?\zip=94103&appid={1}&units=imperial".format(1=APP_ID)
+URL = "http://api.openweathermap.org/data/2.5/weather?\zip=94103&appid={}&units=imperial".format(APP_ID)
 if __name__ == "__main__":
   # API Documentation: http://openweathermap.org/current#current_JSON
   try:
