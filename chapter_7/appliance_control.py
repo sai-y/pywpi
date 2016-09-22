@@ -12,7 +12,7 @@ def control(control):
     lights.on()
   elif control == "off":
     lights.off()
-  return "Table lamp is now %s".format(control)
-
+  return "Table lamp is now %s" % control
+  
 if __name__ == "__main__":
     app.run('0.0.0.0')
