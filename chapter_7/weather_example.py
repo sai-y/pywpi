@@ -3,7 +3,7 @@
 import requests
 
 # generate your own url
-APP_ID = '5d6f02fd4472611a20f4ce602010ee0c'
+APP_ID = ''
 ZIP = 94103
 URL = """http://api.openweathermap.org/data/2.5/weather?zip={}&appid={}\
 &units=imperial""".format(ZIP, APP_ID)
