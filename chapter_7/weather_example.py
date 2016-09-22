@@ -14,7 +14,7 @@ if __name__ == "__main__":
   try:
     # encode data payload and post it
     response = requests.get(URL)
-    json_data = json.loads(response)
+    json_data = json.loads(response.json())
     print(json_data['main']['temp'])
   except requests.exceptions.ConnectionError as error:
     print("The error is %s" % error)
