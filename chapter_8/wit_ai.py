@@ -8,5 +8,5 @@ if __name__ == "__main__":
              "Content-Type": "audio/wav"}
   files = {'file': open('sp01.wav', 'rb')}
   response = requests.post(url, headers=headers, files=files)
-  print(response.status)
+  print(response.status_code)
   print(response.text)
