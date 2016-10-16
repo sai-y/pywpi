@@ -16,8 +16,8 @@ if __name__ == "__main__":
   for station in station_list:
     if station['id'] == 65 and\
        station['availableBikes'] < 10:
-      print("The available bikes is %d", station['availableBikes'])
-      payload = {"value1": station['stationBeanList']}
+      print("The available bikes is %s", station['availableBikes'])
+      payload = {"value1": station['availableBikes']}
       response = requests.post(IFTTT_URL, json=payload)
       if response.status_code == 200:
         print("Notification successfully triggered")
