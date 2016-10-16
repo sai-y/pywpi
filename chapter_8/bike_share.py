@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import requests
-import json
+import datetime
 
 BIKE_URL = "http://feeds.bayareabikeshare.com/stations/stations.json"
 # find your key from ifttt
@@ -16,7 +16,8 @@ if __name__ == "__main__":
   for station in station_list:
     if station['id'] == 65 and\
        station['availableBikes'] < 10:
-       payload = {"value1": "2"}
-       response = requests.post(IFTTT_URL, json=payload)
-       if response.status_code == 200:
+      print("The available bikes is %d", station['availableBikes'])
+      payload = {"value1": station['stationBeanList']}
+      response = requests.post(IFTTT_URL, json=payload)
+      if response.status_code == 200:
         print("Notification successfully triggered")
