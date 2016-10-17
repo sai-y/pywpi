@@ -10,4 +10,4 @@ if __name__ == "__main__":
   wordsApi = WordsApi.WordsApi(client)
   example = wordsApi.getWordOfTheDay()
   print("The word of the day is %s" % example.word)
-  print("The definition is %s" %example.defintions[0])
+  print("The definition is %s" %example.definitions[0])
