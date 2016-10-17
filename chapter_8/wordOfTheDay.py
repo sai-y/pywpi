@@ -2,7 +2,8 @@
 
 from wordnik import *
 
-API_KEY = 'c17e17b7d601024c8450e09f0830206b9d12c91729fa15a2c'
+# sign up for an API key
+API_KEY = 'API_KEY'
 apiUrl = 'http://api.wordnik.com/v4'
 
 if __name__ == "__main__":
