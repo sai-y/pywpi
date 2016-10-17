@@ -8,5 +8,5 @@ apiUrl = 'http://api.wordnik.com/v4'
 if __name__ == "__main__":
   client = swagger.ApiClient(API_KEY, apiUrl)
   wordsApi = WordsApi.WordsApi(client)
-  example = wordsApi.getWordOfTheDay()
+  example = wordsApi.getWordOfTheDay('2016-10-16')
   print(example.text)
