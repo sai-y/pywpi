@@ -9,4 +9,4 @@ if __name__ == "__main__":
   client = swagger.ApiClient(API_KEY, apiUrl)
   wordsApi = WordsApi.WordsApi(client)
   example = wordsApi.getWordOfTheDay()
-  print(example)
+  print(example.text)
