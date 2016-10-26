@@ -4,7 +4,7 @@ import requests
 import logging
 
 # find your key from ifttt
-IFTTT_URL = "https://maker.ifttt.com/trigger/rf_trigger/with/key/cmFd9FSYZzzn_KhhQatUIQ"
+IFTTT_URL = "https://maker.ifttt.com/trigger/rf_trigger/with/key/$key"
 
 if __name__ == "__main__":
   # fetch the bike share information
@@ -15,4 +15,6 @@ if __name__ == "__main__":
   response = requests.post(IFTTT_URL, json=payload)
   if response.status_code == 200:
     logging.info("Notification successfully triggered")
+  else:
+    logging.error("POST request failed")
   
