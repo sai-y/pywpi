@@ -14,5 +14,5 @@ if __name__ == "__main__":
   payload = {"value1": "Sample_1", "value2": "Sample_2"}
   response = requests.post(IFTTT_URL, json=payload)
   if response.status_code == 200:
-    print("Notification successfully triggered")
+    logging.info("Notification successfully triggered")
   
