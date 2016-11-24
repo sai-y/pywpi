@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
 import threading
+import time
 
 def thread_function(string):
   for num in range(5):
+    time.sleep(5)
     print("%s: Iteration: %d" %(string, num))
 
 if __name__ == '__main__':
