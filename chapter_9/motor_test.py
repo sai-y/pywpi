@@ -5,7 +5,7 @@ from time import sleep
 
 
 if __name__ == "__main__":
-  motor_driver = AdaFruit_MotorHAT(addr=0x60)
+  motor_driver = Adafruit_MotorHAT(addr=0x60)
 
   left_motor = motor_driver.getMotor(1)
   right_motor = motor_driver.getMotor(2)
