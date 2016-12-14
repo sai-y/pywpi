@@ -19,15 +19,15 @@ if __name__ == "__main__":
   left_motor.run(Adafruit_MotorHAT.RELEASE)
   right_motor.run(Adafruit_MotorHAT.RELEASE)
 
-  sleep(10)
+  sleep(5)
 
   left_motor.setSpeed(200)
   right_motor.setSpeed(200)
 
-  left_motor.run(Adafruit_MotorHAT.FORWARD)
-  right_motor.run(Adafruit_MotorHAT.FORWARD)
+  left_motor.run(Adafruit_MotorHAT.REVERSE)
+  right_motor.run(Adafruit_MotorHAT.REVERSE)
 
-  sleep(10)
+  sleep(5)
 
   left_motor.run(Adafruit_MotorHAT.RELEASE)
   right_motor.run(Adafruit_MotorHAT.RELEASE)
