@@ -24,8 +24,8 @@ if __name__ == "__main__":
   left_motor.setSpeed(200)
   right_motor.setSpeed(200)
 
-  left_motor.run(Adafruit_MotorHAT.REVERSE)
-  right_motor.run(Adafruit_MotorHAT.REVERSE)
+  left_motor.run(Adafruit_MotorHAT.BACKWARD)
+  right_motor.run(Adafruit_MotorHAT.BACKWARD)
 
   sleep(5)
 
