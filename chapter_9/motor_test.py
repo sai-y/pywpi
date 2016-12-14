@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from AdaFruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
+from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
 from time import sleep
 
 
