@@ -10,8 +10,6 @@ from Adafruit_MotorHAT import Adafruit_MotorHAT
 class Robot(object):
 
 	def __init__(self, left_channel, right_channel):
-    """ create an instance with left and channel as arguments
-    """
     self.motor = Adafruit_MotorHAT(0x60)
     self.left_motor = Adafruit_MotorHAT.getMotor(left_channel)
     self.right_motor = Adafruit_MotorHAT.getMotor(right_channel)
