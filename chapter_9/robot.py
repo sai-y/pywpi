@@ -10,8 +10,8 @@ from Adafruit_MotorHAT import Adafruit_MotorHAT
 class Robot(object):
   def __init__(self, left_channel, right_channel):
     self.motor = Adafruit_MotorHAT(0x60)
-    self.left_motor = Adafruit_MotorHAT.getMotor(left_channel)
-    self.right_motor = Adafruit_MotorHAT.getMotor(right_channel)
+    self.left_motor = self.motor.getMotor(left_channel)
+    self.right_motor = self.motor.getMotor(right_channel)
 
   def set_speed(self):
     self.left_motor.setSpeed(200)
