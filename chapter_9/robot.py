@@ -48,7 +48,7 @@ class Robot(object):
     self.stop()
 
 
-if __name == "__main__":
+if __name__ == "__main__":
   # create an instance  of the robot class with channels 1 and 2
   robot = Robot(1,2)
   print("Moving forward...")
