@@ -1,47 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Cats Everywhere!</title>	
+<html>
+  <head>
+    <title>{{ author }}'s app</title>
+  </head>
 
-	<link href='http://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
-
-	<style type="text/css">    
-  body
-  {
-    background-color:#000;
-  }
-
-  h1
-  {
-    font-size:48px;
-    margin-top:0;
-    font-family:Arial, sans-serif;
-    text-shadow:2px 0 15px #292929;
-    letter-spacing:4px;
-    text-decoration:none;
-    color:#DDD;
-  }
-
- 
-
-  .lead
-  {
-    background-color:rgba(255,255,255,0.6);
-    border-radius:3px;
-    box-shadow:rgba(0,0,0,0.2) 0 1px 3px;
-    font-family:Sintony, sans-serif;
-  }
-	</style>
-
-</head>  
-  
-<body>
-	
-	<iframe id="camimage" src="http://192.168.86.111:8081/?action=stream" width="660" height="500"></iframe>
-	
-	<div id="emailform">
-		
-	</div>
-</body>
+  <body>
+  	<iframe id="camimage" src="http://192.168.86.111:8081/?action=stream" width="320" height="480"></iframe>
+    <h2>Hello {{ name }}!</h2>
+  </body>
 </html>
