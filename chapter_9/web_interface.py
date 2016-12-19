@@ -2,7 +2,7 @@
 """
     Flask framework
 """
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request
 from robot import Robot 
 
 app = Flask(__name__)
@@ -15,22 +15,22 @@ def hello():
 @app.route('/forward', methods = ['POST'])
 def forward():
     my_robot.forward(0.25)
-    return redirect('/')
+    return
 
 @app.route('/reverse', methods = ['POST'])
 def reverse():
     my_robot.reverse(0.25)
-    return redirect('/')
+    return
 
 @app.route('/left', methods = ['POST'])
 def left():
     my_robot.left(0.25)
-    return redirect('/')
+    return
 
 @app.route('/right', methods = ['POST'])
 def right():
     my_robot.right(0.25)
-    return redirect('/')
+    return
 
 if __name__ == "__main__":
     app.run('0.0.0.0')
