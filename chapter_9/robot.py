@@ -52,9 +52,10 @@ if __name__ == "__main__":
   # create an instance  of the robot class with channels 1 and 2
   robot = Robot(1,2)
   print("Moving forward...")
-  robot.forward(5000)
+  robot.forward(5)
   print("Moving backward...")
-  robot.reverse(5000)
+  robot.reverse(5)
+  robot.stop()
 
 
 
