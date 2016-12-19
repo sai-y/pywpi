@@ -14,22 +14,22 @@ def hello():
 
 @app.route('/forward', methods = ['POST'])
 def forward():
-    robot.forward(0.25)
+    my_robot.forward(0.25)
     return redirect('/')
 
 @app.route('/reverse', methods = ['POST'])
 def reverse():
-    robot.reverse(0.25)
+    my_robot.reverse(0.25)
     return redirect('/')
 
 @app.route('/left', methods = ['POST'])
 def left():
-    robot.left(0.25)
+    my_robot.left(0.25)
     return redirect('/')
 
 @app.route('/right', methods = ['POST'])
 def right():
-    robot.right(0.25)
+    my_robot.right(0.25)
     return redirect('/')
 
 if __name__ == "__main__":
