@@ -30,8 +30,8 @@ class Robot(object):
 
   def reverse(self, duration):
     self.set_speed()
-    self.left_motor.run(Adafruit_MotorHAT.FORWARD)
-    self.right_motor.run(Adafruit_MotorHAT.FORWARD)
+    self.left_motor.run(Adafruit_MotorHAT.BACKWARD)
+    self.right_motor.run(Adafruit_MotorHAT.BACKWARD)
     time.sleep(duration)
     self.stop()
 
