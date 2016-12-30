@@ -3,13 +3,10 @@
 ::webkit-selection{ background-color: #E13300; color: white; }
 
 
-table, caption{
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+caption{
+    font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-weight: bold;
+    font-size: 32px;
 }
 table {
   border-collapse: collapse;
