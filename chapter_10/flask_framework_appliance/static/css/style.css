@@ -3,10 +3,17 @@
 ::webkit-selection{ background-color: #E13300; color: white; }
 
 
-caption {
-  background: #dbb768;
-  font-weight: bold;
-  font-size: 2.5em;
+table, caption{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 /* Form Styles */
 form label{
