@@ -5,13 +5,10 @@
 
 caption{
     font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
-    font-weight: bold;
+    font-weight: 400;
     font-size: 32px;
 }
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+
 /* Form Styles */
 form label{
     display: block;
