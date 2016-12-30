@@ -3,7 +3,6 @@
     Flask framework
 """
 from flask import Flask, render_template, request, redirect
-from robot import Robot 
 
 app = Flask(__name__)
 my_robot = Robot(1,2)
