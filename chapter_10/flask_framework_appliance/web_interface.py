@@ -19,10 +19,10 @@ def hello():
 def energize():
     if request.form is not None: 
         relays = request.form.getlist("relay")
-        for idx in range(NUM_APPLIANCES):
+        for idx in range(0,NUM_APPLIANCES):
             device_name = "relay_" + str(idx)
             if device_name in relays :
-                print(relay_index(idx))    
+                print(relay_index[idx])    
     return redirect('/')
 
 if __name__ == "__main__":
