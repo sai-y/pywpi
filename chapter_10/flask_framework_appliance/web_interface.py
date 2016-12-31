@@ -11,7 +11,7 @@ relay_index = [2, 3, 4, 14]
 devices = []
 
 for i in range(NUM_APPLIANCES):
-        devices.append(OutputDevice(relay_index[i]))
+        devices.append(OutputDevice(relay_index[i], activeHigh=False))
 app = Flask(__name__)
 
 @app.route("/")
