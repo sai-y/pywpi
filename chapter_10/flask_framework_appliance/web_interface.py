@@ -7,7 +7,7 @@ from gpiozero import OutputDevice
 
 NUM_APPLIANCES = 4
 
-relay_index = [2,3,4,5]
+relay_index = [2, 3, 4, 14]
 devices = []
 
 for i in range(NUM_APPLIANCES):
@@ -22,7 +22,7 @@ def hello():
 def energize():
     if request.form is not None: 
         relays = request.form.getlist("relay")
-        for idx in range(0,NUM_APPLIANCES):
+        for idx in range(0, NUM_APPLIANCES):
             device_name = "relay_" + str(idx)
             if device_name in relays:
                 device_state = "state_" + str(idx)
