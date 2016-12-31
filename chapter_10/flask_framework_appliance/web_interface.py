@@ -9,6 +9,7 @@ NUM_APPLIANCES = 4
 
 relay_index = [2,3,4,5]
 devices = []
+
 app = Flask(__name__)
 
 @app.route("/")
