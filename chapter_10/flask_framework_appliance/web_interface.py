@@ -23,7 +23,7 @@ def energize():
             device_name = "relay_" + str(idx)
             if device_name in relays :
                 print(relay_index(idx))    
-        return redirect('/')
+return redirect('/')
 
 if __name__ == "__main__":
     app.run('0.0.0.0')
