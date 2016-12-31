@@ -1,9 +1,9 @@
 <head>
     <title>Flask Framework Based Appliance Control</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  </head>
-
-<label class="switch">
-	<input type="checkbox" />
-	<span class="knob"></span>
-</label>
+    <style>.toggleSwitch + label { border: solid #ddd 3px; }</style><!-- for Chrome bug? -->
+</head>
+<body>
+<input  id="toggle" class="toggleSwitch" type="checkbox">
+<label for="toggle"></label>
+</body>
