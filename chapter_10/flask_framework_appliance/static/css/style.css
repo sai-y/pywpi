@@ -1,4 +1,4 @@
-input [type="submit"] {
+form input [type=submit] {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
