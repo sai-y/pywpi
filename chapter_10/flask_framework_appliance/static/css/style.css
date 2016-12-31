@@ -2,7 +2,7 @@
 ::moz-selection{ background-color: #E13300; color: white; }
 ::webkit-selection{ background-color: #E13300; color: white; }
 
-form input [type=submit] {
+.form-wrapper input [type="submit"] {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
