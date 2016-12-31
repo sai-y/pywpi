@@ -10,6 +10,9 @@ NUM_APPLIANCES = 4
 relay_index = [2,3,4,5]
 devices = []
 
+for i in range(NUM_APPLIANCES):
+    devices.append(OutputDevice(i))
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -23,8 +26,13 @@ def energize():
         for idx in range(0,NUM_APPLIANCES):
             device_name = "relay_" + str(idx)
             if device_name in relays:
-                pass
-            print(request.form.get("state_0"))    
+                device_state = "state_" + str(idx)
+                state = request.form.get(device_state)
+                if state == "On":
+                    devices[idx].on()
+                elif state == "Off":
+                    devices[idx].off()
+
     return redirect('/')
 
 if __name__ == "__main__":
