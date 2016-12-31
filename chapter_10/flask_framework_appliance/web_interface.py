@@ -22,8 +22,9 @@ def energize():
         relays = request.form.getlist("relay")
         for idx in range(0,NUM_APPLIANCES):
             device_name = "relay_" + str(idx)
-            if device_name in relays :
-                print(relay_index[idx])    
+            if device_name in relays:
+                pass
+            print(request.form.get("state_0"))    
     return redirect('/')
 
 if __name__ == "__main__":
