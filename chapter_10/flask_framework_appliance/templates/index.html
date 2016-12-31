@@ -3,33 +3,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
-<table>
-	<tr>
-		<td>
-			<form action="/forward" method="POST">
-				<input type="checkbox" id="switch1" name="switch1" class="switch" />
-				
-			</form>
-		</td>
-		<td>
-			<form action="/reverse" method="POST">
-				<input type="checkbox" id="switch2" name="switch2" class="switch" />
-				
-			</form>
-		</td>
-		<td>
-			<form action="/left" method="POST">
-				<input type="checkbox" id="switch3" name="switch3" class="switch" checked="checked" />
-				
-			</form>
-		</td>
-		<td>
-			<form action="/right" method="POST">
-				<input type="checkbox" id="switch4" name="switch4" class="switch" />
-				
-			</form>
-		</td>
-
-	</tr>
-</table>
-
+<form action="/forward" method="POST">
+	<input type="checkbox" name="relay_1" value="1">Motor</input>
+	<input type="checkbox" name="relay_2" value="1">Tank Light 1</input>
+	<input type="checkbox" name="relay_3" value="1">Tank Light 2</input>
+	<input type="checkbox" name="relay_4" value="1">Submersible Pump</input>
+	<input type="submit" value="Energize" >
+</form>
