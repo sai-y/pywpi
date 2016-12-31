@@ -1,13 +1,3 @@
-$fontSize                            : 15px;
-$inputFontSize                       : $fontSize - 2;
-$lineHeight                          : 1.5;
-$inputLineHeight                     : 1.24;
-$white                               : #FFF;
-$green                               : #9bca3e;
-$formInputHeight                     : (($fontSize+2) * 2);
-$formBg                              : $white;
-$formBorderColor                     : #999;
-
 body{ font-family: Helvetica, Arial, sans-serif; padding: 10px; }
 h5{ margin-bottom: 0.5em }
 
