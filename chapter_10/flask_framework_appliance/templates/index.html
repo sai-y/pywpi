@@ -1,23 +1,35 @@
 <head>
     <title>Flask Framework Based Appliance Control</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  </head>
+</head>
 
-<form action="#" method="get">
+<table>
+	<tr>
+		<td>
+			<form action="/forward" method="POST">
+				<input type="checkbox" id="switch1" name="switch1" class="switch" />
+				<label for="switch1">first switch</label>
+			</form>
+		</td>
+		<td>
+			<form action="/reverse" method="POST">
+				<input type="checkbox" id="switch2" name="switch2" class="switch" />
+				<label for="switch2">first switch</label>
+			</form>
+		</td>
+		<td>
+			<form action="/left" method="POST">
+				<input type="checkbox" id="switch3" name="switch3" class="switch" checked="checked" />
+				<label for="switch3">second switch</label>
+			</form>
+		</td>
+		<td>
+			<form action="/right" method="POST">
+				<input type="checkbox" id="switch4" name="switch4" class="switch" />
+				<label for="switch4">third switch</label>
+			</form>
+		</td>
 
-<div>
-<input type="checkbox" id="switch1" name="switch1" class="switch" />
-<label for="switch1">first switch</label>
-</div>
+	</tr>
+</table>
 
-<div>
-<input type="checkbox" id="switch2" name="switch2" class="switch" checked="checked" />
-<label for="switch2">second switch</label>
-</div>
-
-<div>	
-<input type="checkbox" id="switch3" name="switch3" class="switch" />
-<label for="switch3">third switch</label>
-</div>
-	
-</form>
