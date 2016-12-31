@@ -27,8 +27,10 @@ def energize():
                 state = request.form.get(device_state)
                 print(state)
                 if state == "On":
+                    print(state)
                     devices[idx].on()
                 elif state == "Off":
+                    print(state)
                     devices[idx].off()
 
     return redirect('/')
