@@ -6,7 +6,7 @@ from flask import Flask, render_template, request, redirect
 from gpiozero import OutputDevice
 
 relay_index = [2,3,4,5]
-relay = []
+devices = []
 app = Flask(__name__)
 
 @app.route("/")
@@ -15,9 +15,9 @@ def hello():
 
 @app.route('/energize', methods = ['POST'])
 def energize():
-    if request.form["relay"] is not None: 
-        value = request.form
-        print(value)
+    if request.form is not None: 
+        relays = request.form.values()
+        print(relays)
         return redirect('/')
 
 if __name__ == "__main__":
