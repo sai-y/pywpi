@@ -15,9 +15,10 @@ def hello():
 
 @app.route('/energize', methods = ['POST'])
 def energize():
-    value = request.form["relay"]
-    print(value)
-    return redirect('/')
+    if request.form["relay"] is not None: 
+        value = request.form["relay"]
+        print(value)
+        return redirect('/')
 
 if __name__ == "__main__":
     app.run('0.0.0.0')
