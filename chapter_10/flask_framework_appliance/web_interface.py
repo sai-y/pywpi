@@ -28,6 +28,7 @@ def energize():
             if device_name in relays:
                 device_state = "state_" + str(idx)
                 state = request.form.get(device_state)
+                print(state)
                 if state == "On":
                     devices[idx].on()
                 elif state == "Off":
