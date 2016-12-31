@@ -16,8 +16,8 @@ def hello():
 @app.route('/energize', methods = ['POST'])
 def energize():
     if request.form is not None: 
-        relays = request.form.values()
-        print(relays)
+        relays = request.form
+        print(relays.values())
         return redirect('/')
 
 if __name__ == "__main__":
