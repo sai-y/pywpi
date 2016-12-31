@@ -10,6 +10,8 @@ NUM_APPLIANCES = 4
 relay_index = [2,3,4,5]
 devices = []
 
+for i in range(NUM_APPLIANCES):
+        devices.append(OutputDevice(relay_index[i]))
 app = Flask(__name__)
 
 @app.route("/")
@@ -36,6 +38,4 @@ def energize():
     return redirect('/')
 
 if __name__ == "__main__":
-    for i in range(NUM_APPLIANCES):
-        devices.append(OutputDevice(i))
     app.run('0.0.0.0')
