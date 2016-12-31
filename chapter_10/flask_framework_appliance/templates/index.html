@@ -1,8 +1,23 @@
 <head>
     <title>Flask Framework Based Appliance Control</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-<input  id="toggle" class="toggleSwitch" type="checkbox">
-<label for="toggle"></label>
-</body>
+  </head>
+
+<form action="#" method="get">
+
+<div>
+<input type="checkbox" id="switch1" name="switch1" class="switch" />
+<label for="switch1">first switch</label>
+</div>
+
+<div>
+<input type="checkbox" id="switch2" name="switch2" class="switch" checked="checked" />
+<label for="switch2">second switch</label>
+</div>
+
+<div>	
+<input type="checkbox" id="switch3" name="switch3" class="switch" />
+<label for="switch3">third switch</label>
+</div>
+	
+</form>
