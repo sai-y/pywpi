@@ -17,7 +17,7 @@ def hello():
 def energize():
     if request.form is not None: 
         relays = request.form
-        print(relays.values())
+        print(relays)
         return redirect('/')
 
 if __name__ == "__main__":
