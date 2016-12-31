@@ -1,76 +1,175 @@
-body
-{
-    font-family: sans-serif;
-    font-weight: normal;
-    margin: 10px;
-    color: #555;
-    background-color: #eee;
-}
+$fontSize                            : 15px;
+$inputFontSize                       : $fontSize - 2;
+$lineHeight                          : 1.5;
+$inputLineHeight                     : 1.24;
+$white                               : #FFF;
+$green                               : #9bca3e;
+$formInputHeight                     : (($fontSize+2) * 2);
+$formBg                              : $white;
+$formBorderColor                     : #999;
 
-form
-{
-    margin: 40px 0;
-}
+body{ font-family: Helvetica, Arial, sans-serif; padding: 10px; }
+h5{ margin-bottom: 0.5em }
 
-div
-{
-    clear: both;
-    margin: 0 50px;
-}
+.switch{
+    $switchWidth: 80px;
 
-input.switch:empty
-{
-    margin-left: -999px;
-}
-
-input.switch:empty ~ label
-{
-    position: relative;
-    float: left;
-    line-height: 1.6em;
-    text-indent: 4em;
-    margin: 0.2em 0;
+    background-color: $formBg;
+    border: 1px solid $formBorderColor;
+    border-radius: 2px;
+    color: $white;
     cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    display: inline-block;
+    font-size: 0;
+    height: $formInputHeight;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: $switchWidth;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+    &:after,
+    &:before{
+        background-color: $green;
+        color: $white;
+        content : "On";
+        display: block;
+        font-size: $inputFontSize;
+        line-height: $lineHeight;
+        height: 100%;
+        left: 0;
+        padding: 7px 0;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 51%; /* This is so the darker color doesn't show through the rounded corners of the knob */
+    }
+
+    &:before{
+        background-color: $formBorderColor;
+        content : "Off";
+        left: auto;
+        right: 0;
+        width: 50%;
+    }
+
+    .knob{
+        background: darken($formBg, 3%);
+        border: 1px solid $formBorderColor;
+        border-bottom: none;
+        border-top: none;
+        border-radius: 2px;
+        display: block;
+        font-size: $inputFontSize;
+        height: 100%;
+        left: -1px;
+        position: relative;
+        top: 0;
+        width: $switchWidth/2;
+        z-index: 2;
+        
+        -webkit-transition: all 0.15s ease;
+        -moz-transition: all 0.15s ease;
+        -ms-transition: all 0.15s ease;
+        transition: all 0.15s ease;
+
+        &:before,
+        &:after{
+            border: 4px solid transparent;
+            border-left-color: inherit;
+            content : "";
+            display: block;
+            height: 0;
+            left: 50%;
+            margin-left: 2px;
+            margin-top: -3px;
+            position: absolute;
+            top: 50%;
+            width: 0;
+        }
+
+        &:before{
+            border-left-color: transparent;
+            border-right-color: inherit;
+            margin-left: -10px;
+        }
+    }
+
+    input{
+        position: absolute;
+        visibility: hidden;
+    }
+
+    input:checked + .knob{
+        left: 50%;
+    }
 }
 
-input.switch:empty ~ label:before, 
-input.switch:empty ~ label:after
-{
-    position: absolute;
-    display: block;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    content: ' ';
-    width: 3.6em;
-    background-color: #c33;
-    border-radius: 0.3em;
-    box-shadow: inset 0 0.2em 0 rgba(0,0,0,0.3);
-    -webkit-transition: all 100ms ease-in;
-  transition: all 100ms ease-in;
-}
+/* =============================== */
+/* WebKit Only                     */
+/* =============================== */
+.webkit-switch{
+    $switchWidth: 80px;
 
-input.switch:empty ~ label:after
-{
-    width: 1.4em;
-    top: 0.1em;
-    bottom: 0.1em;
-    margin-left: 0.1em;
-    background-color: #fff;
-    border-radius: 0.15em;
-    box-shadow: inset 0 -0.2em 0 rgba(0,0,0,0.2);
-}
+    background-color: $formBg;
+    border: 1px solid $formBorderColor;
+    border-radius: 2px;
+    color: $white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0;
+    height: $formInputHeight;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: $switchWidth;
 
-input.switch:checked ~ label:before
-{
-    background-color: #393;
-}
+    -webkit-user-select: none;
+    -webkit-appearance: none;
 
-input.switch:checked ~ label:after
-{
-    margin-left: 2.1em;
+    &:after,
+    &:before{
+        background-color: $green;
+        color: $white;
+        content : "On";
+        display: block;
+        font-size: $inputFontSize;
+        line-height: $lineHeight;
+        height: 100%;
+        left: 0;
+        padding: 7px 0;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 51%; /* This is so the darker color doesn't show through the rounded corners of the knob */
+    }
+
+    &:after{
+        background-color: $formBorderColor;
+        content : "Off";
+        left: 0;
+        text-indent: 50%;
+        width: 100%;
+            
+        background: 
+                -webkit-linear-gradient(left, darken($formBg, 10%) 0, $formBg 100%) repeat-y 0 0,
+                -webkit-linear-gradient(left, $formBg 0%, $formBg 49%, $formBorderColor 50%, $formBorderColor 100%) repeat-y 0 0;
+        
+        background-size: 50% 50%, 100% 100%;
+        background-origin: 50% 50%, 0 0;
+            
+        -webkit-transition: all 0.15s ease;
+        -moz-transition: all 0.15s ease;
+        -ms-transition: all 0.15s ease;
+        transition: all 0.15s ease;
+    }
+        
+    &:checked:after{
+        left: 50%;    
+    }
 }
