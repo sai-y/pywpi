@@ -3,28 +3,23 @@
     Flask framework
 """
 from flask import Flask, render_template, request, redirect
+from gpiozero import OutputDevice
 
+relay_index = [2,3,4,5]
+relay = []
 app = Flask(__name__)
 
+for gpio_pin in relay_index:
+	relay.append(OutputDevice(gpio_pin))
 
 @app.route("/")
 def hello():
     return render_template('index.html')
 
-@app.route('/forward', methods = ['POST'])
-def forward():
-    return redirect('/')
-
-@app.route('/reverse', methods = ['POST'])
-def reverse():
-    return redirect('/')
-
-@app.route('/left', methods = ['POST'])
-def left():
-    return redirect('/')
-
-@app.route('/right', methods = ['POST'])
-def right():
+@app.route('/energize', methods = ['POST'])
+def energize():
+	value = request.form["relay"]
+	print(value)
     return redirect('/')
 
 if __name__ == "__main__":
