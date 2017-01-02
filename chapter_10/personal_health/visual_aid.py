@@ -25,24 +25,22 @@ if __name__ == "__main__":
     num_leds = 0
 
     while True:
-        now = datetime.datetime.now()
-        end_time = now.strftime("%H:%M")
-
         # update steps every 15 minutes
         if (time.time() - current_time) > 900:
-
-        try:
-            response = client.intraday_time_series('activities/steps',
-                                                   detail_level='15min',
-                                                   start_time="00:00",
-                                                   end_time=end_time)
-        except Exception as error:
-            print(error)
-        else:
-            current_time  = time.time()
-            steps = response['activities-steps'][0]['value']
-            num_leds = steps // 1250
-            print(steps)
+            try:
+                now = datetime.datetime.now()
+                end_time = now.strftime("%H:%M")
+                response = client.intraday_time_series('activities/steps',
+                                                       detail_level='15min',
+                                                       start_time="00:00",
+                                                       end_time=end_time)
+            except Exception as error:
+                print(error)
+            else:
+                current_time  = time.time()
+                steps = response['activities-steps'][0]['value']
+                num_leds = steps // 1250
+                print(steps)
         
         if num_leds > 8:
             num_leds = 8
