@@ -2,7 +2,7 @@
 
 import requests
 
-# generate your own url
+# generate your own api key
 APP_ID = ''
 ZIP = 94103
 URL = """http://api.openweathermap.org/data/2.5/weather?zip={}&appid={}\
