@@ -42,7 +42,7 @@ def get_steps():
         str_steps = response['activities-steps'][0]['value']
         print(str_steps)
         try:
-            num_steps = str(str_steps)
+            num_steps = int(str_steps)
         except ValueError:
             pass
     return num_steps
