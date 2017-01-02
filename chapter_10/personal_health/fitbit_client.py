@@ -21,7 +21,5 @@ if __name__ == "__main__":
     now = datetime.datetime.now()
     end_time = now.strftime("%H:%M")
     response = fbit_client.intraday_time_series('activities/steps',
-                                                detail_level='15min',
-                                                start_time="00:00",
-                                                end_time=end_time)
+                                                period='1d')
     print(response['activities-steps'][0]['value'])
