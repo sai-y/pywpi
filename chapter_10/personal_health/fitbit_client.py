@@ -9,7 +9,7 @@ import datetime
 # insert your keys here
 CONSUMER_KEY = "***REMOVED***"
 CONSUMER_SECRET = "***REMOVED***"
-REFRESH_TOKEN = "***REMOVED***"
+REFRESH_TOKEN = "686c3eadf248fef7b783e53aa7f36a083d10c39aefc8ead831da049f6599c377"
 ACCESS_TOKEN = "***REMOVED***"
 
 

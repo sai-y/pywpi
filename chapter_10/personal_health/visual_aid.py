@@ -12,7 +12,8 @@ import time
 CONSUMER_KEY = "***REMOVED***"
 CONSUMER_SECRET = "***REMOVED***"
 REFRESH_TOKEN = "***REMOVED***"
-ACCESS_TOKEN = "***REMOVED***"
+ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzTk1RQ1QiLCJhdWQiOiIyMjlWTVMiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJhY3QgcnNldCBybG9jIHJ3ZWkgcmhyIHJwcm8gcm51dCByc2xlIiwiZXhwIjoxNDgzNDEyOTk3LCJpYXQiOjE0ODMzODQxOTd9.D_IDFQEfEJumlUo34nEe1qoqSFnyOdUV3vA0YBwbsRA"
+
 
 if __name__ == "__main__":
     client = fitbit.Fitbit(CONSUMER_KEY,
