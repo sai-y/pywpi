@@ -21,8 +21,8 @@ if __name__ == "__main__":
                              	  refresh_token=REFRESH_TOKEN)
 	now = datetime.datetime.now()
 	end_time = now.strftime("%H:%M")
-	response = json.load(fbit_client.intraday_time_series('activities/steps',
+	response = fbit_client.intraday_time_series('activities/steps',
 											 detail_level='15min',
 											 start_time="00:00",
-											 end_time=end_time))
-	print(response)
+											 end_time=end_time)
+	print(response['activities-steps']['value'])
