@@ -25,4 +25,4 @@ if __name__ == "__main__":
 											 detail_level='15min',
 											 start_time="00:00",
 											 end_time=end_time)
-	print(response['activities-steps']['value'])
+	print(response['activities-steps'][0]['value'])
