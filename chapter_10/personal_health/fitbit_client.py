@@ -4,6 +4,8 @@
 """
 
 import fitbit
+import json
+import datetime
 
 # insert your keys here
 CONSUMER_KEY = "229VMS"
@@ -17,7 +19,9 @@ if __name__ == "__main__":
 								  CONSUMER_SECRET,
                              	  access_token=ACCESS_TOKEN,
                              	  refresh_token=REFRESH_TOKEN)
+	now = datetime.datetime.now()
+	end_time = now.strftime("%H:%M")
 	print(fitbit_client.intraday_time_series('activities/steps',
 											 detail_level='15min',
 											 start_time="00:00",
-											 end_time="22:40"))
+											 end_time=end_time))
