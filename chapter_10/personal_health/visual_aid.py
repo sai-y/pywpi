@@ -12,8 +12,8 @@ import schedule
 # insert your keys here
 CONSUMER_KEY = "***REMOVED***"
 CONSUMER_SECRET = "***REMOVED***"
-REFRESH_TOKEN = "***REMOVED***"
-ACCESS_TOKEN = "***REMOVED***"
+ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzTk1RQ1QiLCJhdWQiOiIyMjlWTVMiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJzZXQgcmFjdCBybG9jIHJ3ZWkgcmhyIHJudXQgcnBybyByc2xlIiwiZXhwIjoxNDgzNDE3NDM3LCJpYXQiOjE0ODMzODg2Mzd9.cF_zjSOyORYrMTMe5KMmtrQvnP0xR27CJAnJJ5gj6HQ"
+REFRESH_TOKEN = "d85e34c101d6274f74a1021efc800e2691044a7b8cd16eda0ab9d9159623ad49"
 
 def refresh_token():
     global REFRESH_TOKEN
@@ -24,6 +24,7 @@ def refresh_token():
     REFRESH_TOKEN = oauth.refresh_token()
 
 def get_steps():
+    num_steps = 0
     client = fitbit.Fitbit(CONSUMER_KEY,
                            CONSUMER_SECRET,
                            access_token=ACCESS_TOKEN,
@@ -38,9 +39,13 @@ def get_steps():
     except Exception as error:
         print(error)
     else:
-        steps = response['activities-steps'][0]['value']
-        print(steps)
-        return steps
+        str_steps = response['activities-steps'][0]['value']
+        print(str_steps)
+        try:
+            num_steps = str(str_steps)
+        except ValueError:
+            pass
+    return num_steps
 
 
 if __name__ == "__main__":
