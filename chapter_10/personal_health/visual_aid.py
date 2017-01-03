@@ -15,6 +15,7 @@ CONSUMER_SECRET = "***REMOVED***"
 ACCESS_TOKEN = "***REMOVED***"
 REFRESH_TOKEN = "***REMOVED***"
 
+
 def refresh_token():
     global REFRESH_TOKEN
     oauth = fitbit.FitbitOauth2Client(client_id=CONSUMER_KEY,
