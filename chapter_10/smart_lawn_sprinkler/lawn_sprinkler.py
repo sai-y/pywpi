@@ -27,8 +27,10 @@ def check_weather():
 def turn_on_sprinkler():
 	if not check_weather():
 		# turn on sprinkler
+		print("Turning on sprinkler")
 		time.sleep(600)
 		# turn off sprinkler
+		print("Turning off sprinkler")
 	else:
 		print("Ignoring the sprinker for today")
 
@@ -36,8 +38,7 @@ def turn_off_sprinkler():
 	pass
 
 if __name__ == "__main__":
-	check_weather()
-	schedule.every().day.at("18:45").do(turn_on_sprinkler)
+	schedule.every().day.at("18:50").do(turn_on_sprinkler)
 
 	while True:
 		schedule.run_pending()
