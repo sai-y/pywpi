@@ -7,7 +7,7 @@ import requests
 import schedule
 import time
 
-URL = ("https://api.darksky.net/forecast/***REMOVED***"
+URL = ("https://api.darksky.net/forecast/key"
 "/37.8267,-122.4233?exclude=currently,minutely,hourly")
 
 def check_weather():
