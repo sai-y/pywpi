@@ -13,7 +13,6 @@ URL = ("https://api.darksky.net/forecast/08b2b3024c2a1b85dabf14cea653c899"
 def check_weather():
 	try:
 		response = requests.get(URL)
-		print(response.status_code)
 	except Exception as error:
 		print(error)
 	else:
