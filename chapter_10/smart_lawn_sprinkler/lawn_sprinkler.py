@@ -7,16 +7,20 @@ import requests
 import schedule
 import time
 
-URL = ("https://api.darksky.net/forecast/08b2b3024c2a1b85dabf14cea653c899"
+URL = ("https://api.darksky.net/forecast/"
 "/37.8267,-122.4233?exclude=currently,minutely,hourly")
 
 def check_weather():
-	response = requests.get(URL)
-	data = response.json()
-	if data["daily"]["data"][1]["icon"] == "rain":
-		return True
+	try:
+		response = requests.get(URL)
+	except Exception as error:
+		print(error)
 	else:
-		return False
+		data = response.json()
+		if data["daily"]["data"][1]["icon"] == "rain":
+			return True
+		else:
+			return False
 
 def turn_on_sprinkler():
 	if not check_weather():
