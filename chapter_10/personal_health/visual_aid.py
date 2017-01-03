@@ -10,10 +10,10 @@ import time
 import schedule
 
 # insert your keys here
-CONSUMER_KEY = "***REMOVED***"
-CONSUMER_SECRET = "***REMOVED***"
-ACCESS_TOKEN = "***REMOVED***"
-REFRESH_TOKEN = "***REMOVED***"
+CONSUMER_KEY = "KEY"
+CONSUMER_SECRET = "KEY"
+REFRESH_TOKEN = "KEY"
+ACCESS_TOKEN = "KEY"
 
 
 def refresh_token():
