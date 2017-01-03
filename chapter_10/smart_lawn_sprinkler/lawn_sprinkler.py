@@ -7,12 +7,11 @@ import requests
 import schedule
 import time
 
-URL = ("https://api.net/forecast/"
-"37.8267,-122.4233?exclude=currently,minutely,hourly")
+URL = ("https://api.darksky.net/forecast/08b2b3024c2a1b85dabf14cea653c899"
+"/37.8267,-122.4233?exclude=currently,minutely,hourly")
 
 def check_weather():
 	try:
-		print("About to try")
 		response = requests.get(URL)
 	except Exception as error:
 		print(error)
@@ -36,7 +35,7 @@ def turn_off_sprinkler():
 	pass
 
 if __name__ == "__main__":
-	schedule.every().day.at("18:42").do(turn_on_sprinkler)
+	schedule.every().day.at("18:45").do(turn_on_sprinkler)
 
 	while True:
 		schedule.run_pending()
