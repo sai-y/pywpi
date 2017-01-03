@@ -36,7 +36,7 @@ def turn_off_sprinkler():
 	pass
 
 if __name__ == "__main__":
-	schedule.every().day.at("18:40").do(turn_on_sprinkler)
+	schedule.every().day.at("18:42").do(turn_on_sprinkler)
 
 	while True:
 		schedule.run_pending()
