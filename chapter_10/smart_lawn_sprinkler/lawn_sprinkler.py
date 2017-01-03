@@ -17,10 +17,11 @@ def check_weather():
 		print(error)
 	else:
 		data = response.json()
-		if data["daily"]["data"][1]["icon"] == "rain":
-			return True
-		else:
-			return False
+		if data:
+			if data["daily"]["data"][1]["icon"] == "rain":
+				return True
+			else:
+				return False
 
 def turn_on_sprinkler():
 	if not check_weather():
@@ -34,7 +35,7 @@ def turn_off_sprinkler():
 	pass
 
 if __name__ == "__main__":
-	schedule.every().day.at("18:26").do(turn_on_sprinkler)
+	schedule.every().day.at("18:30").do(turn_on_sprinkler)
 
 	while True:
 		schedule.run_pending()
