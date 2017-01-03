@@ -15,7 +15,6 @@ CONSUMER_SECRET = "45ae7950f85f825638ff0e8087efad4c"
 ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzTk1RQ1QiLCJhdWQiOiIyMjlWTVMiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJzZXQgcmFjdCBybG9jIHJ3ZWkgcmhyIHJudXQgcnBybyByc2xlIiwiZXhwIjoxNDgzNDE3OTI3LCJpYXQiOjE0ODMzODkxMjd9.-GcufiYzUHTFasgypq4sEMm1K7VH2sEfouEKHfmnZ4k"
 REFRESH_TOKEN = "e87d909d78a3ccd2e6db4b439e0968f615a1742498d4f24f384c1c19c870187d"
 
-
 def refresh_token():
     global REFRESH_TOKEN
     oauth = fitbit.FitbitOauth2Client(client_id=CONSUMER_KEY,
@@ -60,6 +59,7 @@ if __name__ == "__main__":
     steps = get_steps()
 
     while True:
+        schedule.run_pending()
         # update steps every 15 minutes
         if (time.time() - current_time) > 900:
             current_time  = time.time()
