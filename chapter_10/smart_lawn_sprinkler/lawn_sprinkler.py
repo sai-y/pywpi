@@ -12,9 +12,10 @@ URL = ("https://api.net/forecast/"
 
 def check_weather():
 	try:
+		print("About to try")
 		response = requests.get(URL)
 	except Exception as error:
-		pass
+		print(error)
 	else:
 		if response.status_code == 200:
 			data = response.json()
