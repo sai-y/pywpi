@@ -13,4 +13,4 @@ URL = ("https://api.darksky.net/forecast/***REMOVED***"
 if __name__ == "__main__":
 	response = requests.get(URL)
 	data = response.json()
-	print(data["daily"]["data"][1]["rain"])
+	print(data["daily"]["data"][1]["icon"])
