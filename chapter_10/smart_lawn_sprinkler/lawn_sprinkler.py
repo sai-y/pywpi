@@ -8,7 +8,7 @@ import schedule
 import time
 
 URL = ("https://api.darksky.net/forecast/"
-"/37.8267,-122.4233?exclude=currently,minutely,hourly")
+"37.8267,-122.4233?exclude=currently,minutely,hourly")
 
 def check_weather():
 	try:
@@ -16,8 +16,8 @@ def check_weather():
 	except Exception as error:
 		print(error)
 	else:
-		data = response.json()
-		if data:
+		if response.status_code == 200:
+			data = response.json()
 			if data["daily"]["data"][1]["icon"] == "rain":
 				return True
 			else:
@@ -35,7 +35,7 @@ def turn_off_sprinkler():
 	pass
 
 if __name__ == "__main__":
-	schedule.every().day.at("18:30").do(turn_on_sprinkler)
+	schedule.every().day.at("18:35").do(turn_on_sprinkler)
 
 	while True:
 		schedule.run_pending()
