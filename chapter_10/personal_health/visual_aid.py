@@ -24,7 +24,7 @@ def refresh_token():
                                       client_secret=CONSUMER_SECRET,
                                       refresh_token=REFRESH_TOKEN,
                                       access_token=ACCESS_TOKEN)
-    REFRESH_TOKEN = oauth.refresh_token()
+    print(oauth.refresh_token()
 
 def get_steps():
     num_steps = 0
