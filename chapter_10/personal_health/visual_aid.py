@@ -10,10 +10,10 @@ import time
 import schedule
 
 # insert your keys here
-CONSUMER_KEY = "***REMOVED***"
-CONSUMER_SECRET = "45ae7950f85f825638ff0e8087efad4"
-ACCESS_TOKEN = "***REMOVED***"
-REFRESH_TOKEN = "***REMOVED***"
+CONSUMER_KEY = "REMOVED"
+CONSUMER_SECRET = "REMOVED"
+ACCESS_TOKEN = "REMOVED"
+REFRESH_TOKEN = "REMOVED"
 
 def get_steps():
     num_steps = 0
