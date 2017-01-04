@@ -11,7 +11,7 @@ import schedule
 
 # insert your keys here
 CONSUMER_KEY = "***REMOVED***"
-CONSUMER_SECRET = "***REMOVED***"
+CONSUMER_SECRET = "45ae7950f85f825638ff0e8087efad4"
 ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzTk1RQ1QiLCJhdWQiOiIyMjlWTVMiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJhY3QgcnNldCBybG9jIHJ3ZWkgcmhyIHJwcm8gcm51dCByc2xlIiwiZXhwIjoxNDgzNTMzNzU3LCJpYXQiOjE0ODM1MDQ5NTd9.14oCbeP9BGwuNYAsdg4ursOOfe1jKOBYRdHta-0qWdo"
 REFRESH_TOKEN = "6251fb34523246d6457722b8b2b578e01b245e54f7087b9530928c1b9580dd4b"
 
@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     num_leds = 0
     refresh_token()
-    schedule.every(8).hours.do(refresh_token)
+    schedule.every(10).minutes.do(refresh_token)
     steps = get_steps()
 
     while True:
