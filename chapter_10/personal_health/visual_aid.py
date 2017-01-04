@@ -20,7 +20,7 @@ REFRESH_TOKEN = "***REMOVED***"
 
 def refresh_token():
     global REFRESH_TOKEN
-    oauth_client = fitbit.Fitbit(CONSUMER_KEY,
+    oauth_client = fitbit.Fitbit('***REMOVED***',
                            CONSUMER_SECRET,
                            access_token=ACCESS_TOKEN,
                            refresh_token=REFRESH_TOKEN)
