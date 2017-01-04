@@ -10,6 +10,7 @@ import time
 import schedule
 
 # insert your keys here
+
 CONSUMER_KEY = "***REMOVED***"
 CONSUMER_SECRET = "***REMOVED***"
 REFRESH_TOKEN = "***REMOVED***"
@@ -24,12 +25,10 @@ def refresh_token():
                                       access_token=ACCESS_TOKEN)
     REFRESH_TOKEN = oauth.refresh_token()
 
+
 def get_steps():
     num_steps = 0
-    client = fitbit.Fitbit(CONSUMER_KEY,
-                           CONSUMER_SECRET,
-                           access_token=ACCESS_TOKEN,
-                           refresh_token=REFRESH_TOKEN)
+    
     try:
         now = datetime.datetime.now()
         end_time = now.strftime("%H:%M")
@@ -50,13 +49,16 @@ def get_steps():
 
 
 if __name__ == "__main__":
+
+    client = fitbit.Fitbit(CONSUMER_KEY,
+                           CONSUMER_SECRET,
+                           access_token=ACCESS_TOKEN,
+                           refresh_token=REFRESH_TOKEN)
     
     blinkt.set_brightness(0.1)
     current_time = time.time()
 
     num_leds = 0
-    refresh_token()
-    schedule.every(8).hours.do(refresh_token)
     steps = get_steps()
 
     while True:
