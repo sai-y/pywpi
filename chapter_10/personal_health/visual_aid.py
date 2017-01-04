@@ -20,11 +20,11 @@ REFRESH_TOKEN = "6cd0e37f7ee88a30ce883c9b83c6a3804164e99e68fb81f1fb7ae2c7402c89f
 
 def refresh_token():
     global REFRESH_TOKEN
-    oauth = fitbit.FitbitOauth2Client(client_id=CONSUMER_KEY,
-                                      client_secret=CONSUMER_SECRET,
-                                      refresh_token=REFRESH_TOKEN,
-                                      access_token=ACCESS_TOKEN)
-    print(oauth.refresh_token())
+    oauth_client = fitbit.Fitbit(CONSUMER_KEY,
+                           CONSUMER_SECRET,
+                           access_token=ACCESS_TOKEN,
+                           refresh_token=REFRESH_TOKEN)
+    print str(oauth_client.client.refresh_token())
 
 def get_steps():
     num_steps = 0
