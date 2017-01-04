@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     num_leds = 0
     refresh_token()
-    schedule.every(8).hours.do(refresh_token)
+    schedule.every(10).minutes.do(refresh_token)
     steps = get_steps()
 
     while True:
