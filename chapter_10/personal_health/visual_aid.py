@@ -15,23 +15,9 @@ CONSUMER_SECRET = "45ae7950f85f825638ff0e8087efad4"
 ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzTk1RQ1QiLCJhdWQiOiIyMjlWTVMiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJhY3QgcnNldCBybG9jIHJ3ZWkgcmhyIHJwcm8gcm51dCByc2xlIiwiZXhwIjoxNDgzNTM0MzQ4LCJpYXQiOjE0ODM1MDU1NDh9._RQtxVktitZ-l-m1dNMDmXDPoPIUm7TG_w2BFFczAXg"
 REFRESH_TOKEN = "6cd0e37f7ee88a30ce883c9b83c6a3804164e99e68fb81f1fb7ae2c7402c89fa"
 
-
-
-
-def refresh_token():
-    global REFRESH_TOKEN
-    oauth = fitbit.FitbitOauth2Client(CONSUMER_KEY,
-                                      CONSUMER_SECRET,
-                                      refresh_token=REFRESH_TOKEN,
-                                      access_token=ACCESS_TOKEN)
-    print(oauth.refresh_token())
-
 def get_steps():
     num_steps = 0
-    client = fitbit.Fitbit(CONSUMER_KEY,
-                           CONSUMER_SECRET,
-                           access_token=ACCESS_TOKEN,
-                           refresh_token=REFRESH_TOKEN)
+    
     try:
         now = datetime.datetime.now()
         end_time = now.strftime("%H:%M")
@@ -52,13 +38,16 @@ def get_steps():
 
 
 if __name__ == "__main__":
+
+    client = fitbit.Fitbit(CONSUMER_KEY,
+                           CONSUMER_SECRET,
+                           access_token=ACCESS_TOKEN,
+                           refresh_token=REFRESH_TOKEN)
     
     blinkt.set_brightness(0.1)
     current_time = time.time()
 
     num_leds = 0
-    refresh_token()
-    schedule.every(10).minutes.do(refresh_token)
     steps = get_steps()
 
     while True:
