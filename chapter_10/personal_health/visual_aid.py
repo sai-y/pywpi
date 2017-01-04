@@ -22,6 +22,7 @@ def refresh_token():
     global REFRESH_TOKEN
     oauth_client = fitbit.Fitbit('***REMOVED***',
                            CONSUMER_SECRET,
+                           oauth2=True,
                            access_token=ACCESS_TOKEN,
                            refresh_token=REFRESH_TOKEN)
     print(str(oauth_client.client.refresh_token()))
