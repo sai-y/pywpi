@@ -13,8 +13,9 @@ import schedule
 
 CONSUMER_KEY = "***REMOVED***"
 CONSUMER_SECRET = "***REMOVED***"
+ACCESS_TOKEN= "***REMOVED***"
 REFRESH_TOKEN = "***REMOVED***"
-ACCESS_TOKEN = "***REMOVED***"
+
 
 
 def refresh_token():
