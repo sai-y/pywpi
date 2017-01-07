@@ -11,7 +11,7 @@ import configparser
 
 # config is loaded from config file
 # alternatively you may store them as constants in your program
-config = ConfigParser.ConfigParser()
+config = configparser.ConfigParser()
 config.read('config.ini')
 
 CONSUMER_KEY = config.get("APP", "CONSUMER_KEY")
