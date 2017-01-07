@@ -64,7 +64,6 @@ if __name__ == "__main__":
     steps = get_steps()
 
     while True:
-        schedule.run_pending()
         # update steps every 15 minutes
         if (time.time() - current_time) > 900:
             current_time = time.time()
