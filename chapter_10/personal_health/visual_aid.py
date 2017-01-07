@@ -7,7 +7,7 @@ import blinkt
 import datetime
 import fitbit
 import time
-import ConfigParser
+import configparser
 
 # config is loaded from config file
 # alternatively you may store them as constants in your program
