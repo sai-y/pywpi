@@ -5,12 +5,17 @@
 
 import fitbit
 import datetime
+import configparser
 
-# insert your keys here
-CONSUMER_KEY = "REMOVED"
-CONSUMER_SECRET = "REMOVED"
-ACCESS_TOKEN = "REMOVED"
-REFRESH_TOKEN = "REMOVED"
+# config is loaded from config file
+# alternatively you may store them as constants in your program
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+CONSUMER_KEY = config.get("APP", "CONSUMER_KEY")
+CONSUMER_SECRET = config.get("APP", "CONSUMER_SECRET")
+REFRESH_TOKEN = config.get("USER", "REFRESH_TOKEN")
+ACCESS_TOKEN = config.get("USER", "ACCESS_TOKEN")
 
 
 if __name__ == "__main__":
