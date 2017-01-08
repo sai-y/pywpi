@@ -21,7 +21,7 @@ ACCESS_TOKEN = config.get("USER", "ACCESS_TOKEN")
 
 
 def update_tokens(client):
-    tokens = client.client.tokens()
+    tokens = client.client.token
 
     if True:
 
