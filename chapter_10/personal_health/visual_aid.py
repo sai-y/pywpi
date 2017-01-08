@@ -30,8 +30,8 @@ def update_tokens(client):
         config.set("USER", "REFRESH_TOKEN", tokens['refresh_token'])
         config.set("USER", "ACCESS_TOKEN", tokens['access_token'])
 
-        with open("config.ini", "wb") as config_file:
-            config_file.write(bytes(config, "utf-8"))
+        with open("config.ini", "w") as config_file:
+            config.write(config_file)
 
 
 def get_steps(client):
