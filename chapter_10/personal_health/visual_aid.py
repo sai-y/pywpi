@@ -8,11 +8,13 @@ import datetime
 import fitbit
 import time
 import configparser
+import schedule
 
 # config is loaded from config file
 # alternatively you may store them as constants in your program
+CONFIG_FILE = '/home/pi/config.ini'
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read(CONFIG_FILE)
 
 CONSUMER_KEY = config.get("APP", "CONSUMER_KEY")
 CONSUMER_SECRET = config.get("APP", "CONSUMER_SECRET")
@@ -23,14 +25,15 @@ ACCESS_TOKEN = config.get("USER", "ACCESS_TOKEN")
 def update_tokens(client):
     tokens = client.client.token
 
-    if True:
+    if (tokens['access_token'] != ACCESS_TOKEN
+            or tokens['refresh_token'] != REFRESH_TOKEN):
 
         config = configparser.ConfigParser()
-        config.read('config.ini')
+        config.read(CONFIG_FILE)
         config.set("USER", "REFRESH_TOKEN", tokens['refresh_token'])
         config.set("USER", "ACCESS_TOKEN", tokens['access_token'])
 
-        with open("config.ini", "w") as config_file:
+        with open(CONFIG_FILE, "w") as config_file:
             config.write(config_file)
 
 
@@ -62,14 +65,15 @@ if __name__ == "__main__":
                            access_token=ACCESS_TOKEN,
                            refresh_token=REFRESH_TOKEN)
 
+    schedule.every(600).minutes.do(update_tokens, client)
     blinkt.set_brightness(0.1)
     current_time = time.time()
 
     num_leds = 0
     steps = get_steps(client)
-    update_tokens(client)
 
     while True:
+        schedule.run_pending()
         # update steps every 15 minutes
         if (time.time() - current_time) > 900:
             current_time = time.time()
