@@ -76,6 +76,7 @@ if __name__ == "__main__":
 
         for i in range(num_leds):
             blinkt.set_pixel(i, 0, 255, 0)
+            blinkt.show()
 
         if num_leds <= 7:
             blinkt.set_pixel(num_leds, 255, 0, 0)
