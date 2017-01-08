@@ -56,6 +56,7 @@ if __name__ == "__main__":
                            CONSUMER_SECRET,
                            access_token=ACCESS_TOKEN,
                            refresh_token=REFRESH_TOKEN)
+    print(client.token)
 
     blinkt.set_brightness(0.1)
     current_time = time.time()
