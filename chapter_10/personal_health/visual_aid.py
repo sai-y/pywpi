@@ -20,16 +20,21 @@ REFRESH_TOKEN = config.get("USER", "REFRESH_TOKEN")
 ACCESS_TOKEN = config.get("USER", "ACCESS_TOKEN")
 
 
-def refresh_token():
-    global REFRESH_TOKEN
-    oauth = fitbit.FitbitOauth2Client(client_id=CONSUMER_KEY,
-                                      client_secret=CONSUMER_SECRET,
-                                      refresh_token=REFRESH_TOKEN,
-                                      access_token=ACCESS_TOKEN)
-    REFRESH_TOKEN = oauth.refresh_token()
+def update_tokens(client):
+    tokens = client.client.tokens()
+
+    if (tokens['access_token'] != ACCESS_TOKEN
+            or tokens['refresh_token'] != REFRESH_TOKEN):
+
+        config = configparser.ConfigParser()
+        config.set("USER", "REFRESH_TOKEN", tokens['refresh_token'])
+        config.set("USER", "ACCESS_TOKEN", tokens['access_token'])
+
+        with open("config.ini", "wb") as config_file:
+            config_file.write(config)
 
 
-def get_steps():
+def get_steps(client):
     num_steps = 0
 
     try:
@@ -56,13 +61,12 @@ if __name__ == "__main__":
                            CONSUMER_SECRET,
                            access_token=ACCESS_TOKEN,
                            refresh_token=REFRESH_TOKEN)
-    print(client.client.token)
 
     blinkt.set_brightness(0.1)
     current_time = time.time()
 
     num_leds = 0
-    steps = get_steps()
+    steps = get_steps(client)
 
     while True:
         # update steps every 15 minutes
