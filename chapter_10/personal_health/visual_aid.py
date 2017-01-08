@@ -12,7 +12,7 @@ import schedule
 
 # config is loaded from config file
 # alternatively you may store them as constants in your program
-CONFIG_FILE = 'config.ini'
+CONFIG_FILE = '/home/pi/config.ini'
 config = configparser.ConfigParser()
 config.read(CONFIG_FILE)
 
