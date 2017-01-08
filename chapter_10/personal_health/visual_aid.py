@@ -26,6 +26,7 @@ def update_tokens(client):
     if True:
 
         config = configparser.ConfigParser()
+        config.read('config.ini')
         config.set("USER", "REFRESH_TOKEN", tokens['refresh_token'])
         config.set("USER", "ACCESS_TOKEN", tokens['access_token'])
 
