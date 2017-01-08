@@ -66,12 +66,13 @@ if __name__ == "__main__":
 
     num_leds = 0
     steps = get_steps(client)
+    update_tokens(client)
 
     while True:
         # update steps every 15 minutes
         if (time.time() - current_time) > 900:
             current_time = time.time()
-            steps = get_steps()
+            steps = get_steps(client)
 
         num_leds = steps // 1250
 
