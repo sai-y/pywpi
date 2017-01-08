@@ -31,7 +31,7 @@ def update_tokens(client):
         config.set("USER", "ACCESS_TOKEN", tokens['access_token'])
 
         with open("config.ini", "wb") as config_file:
-            config_file.write(config.encode('utf-8'))
+            config_file.write(bytes(config, "utf-8"))
 
 
 def get_steps(client):
