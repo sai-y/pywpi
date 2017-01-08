@@ -8,11 +8,13 @@ import datetime
 import fitbit
 import time
 import configparser
+import schedule
 
 # config is loaded from config file
 # alternatively you may store them as constants in your program
+CONFIG_FILE = 'config.ini'
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read(CONFIG_FILE)
 
 CONSUMER_KEY = config.get("APP", "CONSUMER_KEY")
 CONSUMER_SECRET = config.get("APP", "CONSUMER_SECRET")
@@ -20,16 +22,22 @@ REFRESH_TOKEN = config.get("USER", "REFRESH_TOKEN")
 ACCESS_TOKEN = config.get("USER", "ACCESS_TOKEN")
 
 
-def refresh_token():
-    global REFRESH_TOKEN
-    oauth = fitbit.FitbitOauth2Client(client_id=CONSUMER_KEY,
-                                      client_secret=CONSUMER_SECRET,
-                                      refresh_token=REFRESH_TOKEN,
-                                      access_token=ACCESS_TOKEN)
-    REFRESH_TOKEN = oauth.refresh_token()
+def update_tokens(client):
+    tokens = client.client.token
+
+    if (tokens['access_token'] != ACCESS_TOKEN
+            or tokens['refresh_token'] != REFRESH_TOKEN):
+
+        config = configparser.ConfigParser()
+        config.read(CONFIG_FILE)
+        config.set("USER", "REFRESH_TOKEN", tokens['refresh_token'])
+        config.set("USER", "ACCESS_TOKEN", tokens['access_token'])
+
+        with open(CONFIG_FILE, "w") as config_file:
+            config.write(config_file)
 
 
-def get_steps():
+def get_steps(client):
     num_steps = 0
 
     try:
@@ -57,17 +65,19 @@ if __name__ == "__main__":
                            access_token=ACCESS_TOKEN,
                            refresh_token=REFRESH_TOKEN)
 
+    schedule.every(600).minutes.do(update_tokens, client)
     blinkt.set_brightness(0.1)
     current_time = time.time()
 
     num_leds = 0
-    steps = get_steps()
+    steps = get_steps(client)
 
     while True:
+        schedule.run_pending()
         # update steps every 15 minutes
         if (time.time() - current_time) > 900:
             current_time = time.time()
-            steps = get_steps()
+            steps = get_steps(client)
 
         num_leds = steps // 1250
 
