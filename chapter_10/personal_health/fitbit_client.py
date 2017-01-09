@@ -10,7 +10,7 @@ import configparser
 # config is loaded from config file
 # alternatively you may store them as constants in your program
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read('/home/pi/config.ini')
 
 CONSUMER_KEY = config.get("APP", "CONSUMER_KEY")
 CONSUMER_SECRET = config.get("APP", "CONSUMER_SECRET")
@@ -26,7 +26,7 @@ if __name__ == "__main__":
     now = datetime.datetime.now()
     end_time = now.strftime("%H:%M")
     response = fbit_client.intraday_time_series('activities/steps',
-                                            detail_level='15min',
-                                            start_time="00:00",
-                                            end_time=end_time)
+                                                detail_level='15min',
+                                                start_time="00:00",
+                                                end_time=end_time)
     print(response['activities-steps'][0]['value'])
