@@ -79,6 +79,10 @@ if __name__ == "__main__":
             current_time = time.time()
             steps = get_steps(client)
 
+            for i in range(8):
+                blinkt.set_pixel(i, 0, 0, 0)
+                blinkt.show()
+
         num_leds = steps // 1250
 
         if num_leds > 8:
