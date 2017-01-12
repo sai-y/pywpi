@@ -65,7 +65,7 @@ if __name__ == "__main__":
                            access_token=ACCESS_TOKEN,
                            refresh_token=REFRESH_TOKEN)
 
-    schedule.every(600).minutes.do(update_tokens, client)
+    schedule.every(60).minutes.do(update_tokens, client)
     blinkt.set_brightness(0.1)
     current_time = time.time()
 
