@@ -22,7 +22,7 @@ def check_weather():
     except Exception as error:
         print(error)
     else:
-        print(response)
+        print(response.json())
         if response.status_code == 200:
             data = response.json()
             return data["daily"]["data"][1]["icon"] == "rain"
