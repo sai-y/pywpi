@@ -44,6 +44,7 @@ def turn_off_sprinkler():
 
 
 if __name__ == "__main__":
+    check_weather()
     schedule.every().day.at("22:27").do(turn_on_sprinkler)
 
     while True:
