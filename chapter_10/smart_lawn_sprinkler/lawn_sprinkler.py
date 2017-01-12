@@ -6,9 +6,14 @@
 import requests
 import schedule
 import time
+import configparser
 
-URL = ("https://api.darksky.net/forecast/key"
-       "/37.8267,-122.4233?exclude=currently,minutely,hourly")
+config = configparser.ConfigParser()
+config.read('/home/pi/weather_config.ini')
+
+KEY = config.get("APP", "KEY")
+URL = ("https://api.darksky.net/forecast/{key}"
+       "/37.8267,-122.4233?exclude=currently,minutely,hourly").format(key=KEY)
 
 
 def check_weather():
@@ -17,6 +22,7 @@ def check_weather():
     except Exception as error:
         print(error)
     else:
+        print(response)
         if response.status_code == 200:
             data = response.json()
             return data["daily"]["data"][1]["icon"] == "rain"
