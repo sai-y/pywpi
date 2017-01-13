@@ -14,13 +14,15 @@ for i in range(NUM_APPLIANCES):
         devices.append(OutputDevice(relay_index[i], active_high=False))
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello():
     return render_template('index.html')
 
-@app.route('/energize', methods = ['POST'])
+
+@app.route('/energize', methods=['POST'])
 def energize():
-    if request.form is not None: 
+    if request.form is not None:
         relays = request.form.getlist("relay")
         for idx in range(0, NUM_APPLIANCES):
             device_name = "relay_" + str(idx)
@@ -36,6 +38,7 @@ def energize():
                     devices[idx].off()
 
     return redirect('/')
+
 
 if __name__ == "__main__":
     app.run('0.0.0.0')
