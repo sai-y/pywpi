@@ -22,16 +22,15 @@ REFRESH_TOKEN = config.get("USER", "REFRESH_TOKEN")
 ACCESS_TOKEN = config.get("USER", "ACCESS_TOKEN")
 
 
-def update_tokens(client):
-    tokens = client.client.token
+def update_tokens(token):
 
-    if (tokens['access_token'] != ACCESS_TOKEN
-            or tokens['refresh_token'] != REFRESH_TOKEN):
+    if (token['access_token'] != ACCESS_TOKEN
+            or token['refresh_token'] != REFRESH_TOKEN):
 
         config = configparser.ConfigParser()
         config.read(CONFIG_FILE)
-        config.set("USER", "REFRESH_TOKEN", tokens['refresh_token'])
-        config.set("USER", "ACCESS_TOKEN", tokens['access_token'])
+        config.set("USER", "REFRESH_TOKEN", token['refresh_token'])
+        config.set("USER", "ACCESS_TOKEN", token['access_token'])
 
         with open(CONFIG_FILE, "w") as config_file:
             config.write(config_file)
@@ -63,9 +62,9 @@ if __name__ == "__main__":
     client = fitbit.Fitbit(CONSUMER_KEY,
                            CONSUMER_SECRET,
                            access_token=ACCESS_TOKEN,
-                           refresh_token=REFRESH_TOKEN)
+                           refresh_token=REFRESH_TOKEN,
+                           refresh_cb=update_tokens)
 
-    schedule.every(60).minutes.do(update_tokens, client)
     blinkt.set_brightness(0.1)
     current_time = time.time()
 
@@ -73,7 +72,6 @@ if __name__ == "__main__":
     steps = get_steps(client)
 
     while True:
-        schedule.run_pending()
         # update steps every 15 minutes
         if (time.time() - current_time) > 900:
             current_time = time.time()
