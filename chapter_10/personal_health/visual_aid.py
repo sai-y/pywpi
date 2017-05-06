@@ -24,9 +24,10 @@ ACCESS_TOKEN = config.get("USER", "ACCESS_TOKEN")
 
 def update_tokens(token):
 
-    if (token['access_token'] != ACCESS_TOKEN
-            or token['refresh_token'] != REFRESH_TOKEN):
-
+    if (
+        token['access_token'] != ACCESS_TOKEN or
+        token['refresh_token'] != REFRESH_TOKEN
+    ):
         config = configparser.ConfigParser()
         config.read(CONFIG_FILE)
         config.set("USER", "REFRESH_TOKEN", token['refresh_token'])
