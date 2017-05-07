@@ -58,6 +58,16 @@ def get_steps(client):
             pass
     return num_steps
 
+def get_goal(client):
+    num_steps = 0
+
+    try:
+        response = client.activities_daily_goal()
+    except Exception as error:
+        print(error)
+    
+    return response['goals']['steps']
+
 if __name__ == "__main__":
 
     client = fitbit.Fitbit(CONSUMER_KEY,
@@ -82,7 +92,7 @@ if __name__ == "__main__":
                 blinkt.set_pixel(i, 0, 0, 0)
                 blinkt.show()
 
-        num_leds = steps // 1250
+        num_leds = steps // (get_goal(client) / 8)
 
         if num_leds > 8:
             num_leds = 8
