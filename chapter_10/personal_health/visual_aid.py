@@ -81,6 +81,7 @@ if __name__ == "__main__":
 
     num_leds = 0
     steps = get_steps(client)
+    denominator = int(get_goal(client) / 8)
 
     while True:
         # update steps every 15 minutes
@@ -91,8 +92,6 @@ if __name__ == "__main__":
             for i in range(8):
                 blinkt.set_pixel(i, 0, 0, 0)
                 blinkt.show()
-
-        denominator = int(get_goal(client) / 8)
 
         num_leds = steps // denominator
 
