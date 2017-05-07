@@ -9,7 +9,9 @@ import configparser
 
 # config is loaded from config file
 # alternatively you may store them as constants in your program
+CONFIG_FILE = '/home/pi/config.ini'
 config = configparser.ConfigParser()
+config.read(CONFIG_FILE)
 
 CONSUMER_KEY = config.get("APP", "CONSUMER_KEY")
 CONSUMER_SECRET = config.get("APP", "CONSUMER_SECRET")
