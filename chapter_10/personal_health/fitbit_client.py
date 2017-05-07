@@ -10,7 +10,6 @@ import configparser
 # config is loaded from config file
 # alternatively you may store them as constants in your program
 config = configparser.ConfigParser()
-config.read('/home/pi/config.ini')
 
 CONSUMER_KEY = config.get("APP", "CONSUMER_KEY")
 CONSUMER_SECRET = config.get("APP", "CONSUMER_SECRET")
@@ -30,3 +29,6 @@ if __name__ == "__main__":
                                                 start_time="00:00",
                                                 end_time=end_time)
     print(response['activities-steps'][0]['value'])
+
+    response = fbit_client.activities_daily_goal()
+    print(response)
