@@ -33,4 +33,4 @@ if __name__ == "__main__":
     print(response['activities-steps'][0]['value'])
 
     response = fbit_client.activities_daily_goal()
-    print(response)
+    print(response['goals']['steps'])
