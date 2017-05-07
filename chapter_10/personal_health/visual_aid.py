@@ -92,7 +92,9 @@ if __name__ == "__main__":
                 blinkt.set_pixel(i, 0, 0, 0)
                 blinkt.show()
 
-        num_leds = steps // (get_goal(client) / 8)
+        denominator = int(get_goal(client) / 8)
+
+        num_leds = steps // denominator
 
         if num_leds > 8:
             num_leds = 8
