@@ -49,12 +49,8 @@ def get_steps(client):
     except Exception as error:
         print(error)
     else:
-        str_steps = response['activities-steps'][0]['value']
-        print(str_steps)
-        try:
-            num_steps = int(str_steps)
-        except ValueError:
-            pass
+        num_steps = response['activities-steps'][0]['value']
+        print(num_steps)
     return num_steps
 
 
