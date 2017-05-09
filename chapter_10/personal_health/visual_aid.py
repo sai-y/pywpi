@@ -8,7 +8,6 @@ import datetime
 import fitbit
 import time
 import configparser
-import schedule
 
 # config is loaded from config file
 # alternatively you may store them as constants in your program
@@ -58,6 +57,7 @@ def get_steps(client):
             pass
     return num_steps
 
+
 def get_goal(client):
     num_steps = 0
 
@@ -65,7 +65,7 @@ def get_goal(client):
         response = client.activities_daily_goal()
     except Exception as error:
         print(error)
-    
+
     return response['goals']['steps']
 
 if __name__ == "__main__":
