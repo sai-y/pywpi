@@ -49,8 +49,12 @@ def get_steps(client):
     except Exception as error:
         print(error)
     else:
-        num_steps = response['activities-steps'][0]['value']
-        print(num_steps)
+        str_steps = response['activities-steps'][0]['value']
+        print(str_steps)
+        try:
+            num_steps = int(str_steps)
+        except ValueError:
+            pass
     return num_steps
 
 
@@ -61,8 +65,9 @@ def get_goal(client):
         response = client.activities_daily_goal()
     except Exception as error:
         print(error)
-
+    
     return response['goals']['steps']
+
 
 if __name__ == "__main__":
 
