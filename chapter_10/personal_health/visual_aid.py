@@ -37,6 +37,9 @@ def update_tokens(token):
 
 
 def get_steps(client):
+    """
+        Return the steps logged
+    """
     num_steps = 0
 
     try:
@@ -59,6 +62,9 @@ def get_steps(client):
 
 
 def get_goal(client):
+    """
+        Determine Daily step goal
+    """
     num_steps = 0
 
     try:
@@ -81,6 +87,7 @@ if __name__ == "__main__":
     current_time = time.time()
 
     num_leds = 0
+    # retrieve steps 
     steps = get_steps(client)
     denominator = int(get_goal(client) / 8)
 
@@ -92,6 +99,7 @@ if __name__ == "__main__":
 
             for i in range(8):
                 blinkt.set_pixel(i, 0, 0, 0)
+                blinkt.set_brightness(0.1)
                 blinkt.show()
 
         num_leds = steps // denominator
@@ -101,12 +109,15 @@ if __name__ == "__main__":
 
         for i in range(num_leds):
             blinkt.set_pixel(i, 0, 255, 0)
+            blinkt.set_brightness(0.1)
             blinkt.show()
 
         if num_leds <= 7:
             blinkt.set_pixel(num_leds, 255, 0, 0)
+            blinkt.set_brightness(0.1)
             blinkt.show()
             time.sleep(1)
             blinkt.set_pixel(num_leds, 0, 0, 0)
+            blinkt.set_brightness(0.1)
             blinkt.show()
             time.sleep(1)
