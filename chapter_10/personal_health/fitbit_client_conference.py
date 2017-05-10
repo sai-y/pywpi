@@ -28,6 +28,7 @@ if __name__ == "__main__":
     # end_time = now.strftime("%H:%M")
     response = fbit_client.time_series(
         'activities/steps',
-        user_id='5HX8YP'
+        user_id='5HX8YP',
+        period='1d'
     )
     
