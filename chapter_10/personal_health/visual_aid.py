@@ -95,7 +95,7 @@ if __name__ == "__main__":
         # update steps every 15 minutes
         if (time.time() - current_time) > 900:
             steps = get_steps(client)
-            # make another attempt only if step check was successful
+            # refresh LEDs only if step check was successful
             if steps >= 0:
                 current_time = time.time()
                 num_leds = steps // denominator
