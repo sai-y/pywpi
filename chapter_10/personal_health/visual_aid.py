@@ -86,10 +86,10 @@ if __name__ == "__main__":
     blinkt.set_brightness(0.1)
     current_time = time.time()
 
-    num_leds = 0
     # retrieve steps
     steps = get_steps(client)
     denominator = int(get_goal(client) / 8)
+    num_leds = steps // denominator
 
     while True:
         # update steps every 15 minutes
