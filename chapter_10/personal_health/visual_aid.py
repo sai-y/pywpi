@@ -89,7 +89,6 @@ if __name__ == "__main__":
     num_leds = 0
     # retrieve steps
     steps = get_steps(client)
-    previous_steps = steps
     denominator = int(get_goal(client) / 8)
 
     while True:
