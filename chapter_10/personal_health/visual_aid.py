@@ -57,7 +57,7 @@ def get_steps(client):
         try:
             num_steps = int(str_steps)
         except ValueError:
-            pass
+            return -1
     return num_steps
 
 
@@ -71,7 +71,7 @@ def get_goal(client):
         response = client.activities_daily_goal()
     except Exception as error:
         print(error)
-    
+
     return response['goals']['steps']
 
 
@@ -87,22 +87,26 @@ if __name__ == "__main__":
     current_time = time.time()
 
     num_leds = 0
-    # retrieve steps 
+    # retrieve steps
     steps = get_steps(client)
+    previous_steps = steps
     denominator = int(get_goal(client) / 8)
 
     while True:
         # update steps every 15 minutes
         if (time.time() - current_time) > 900:
-            current_time = time.time()
             steps = get_steps(client)
+            # make another attempt only if step check was successful
+            if steps >= 0:
+                current_time = time.time()
+                num_leds = steps // denominator
+            else:
+                continue
 
             for i in range(8):
                 blinkt.set_pixel(i, 0, 0, 0)
                 blinkt.set_brightness(0.1)
                 blinkt.show()
-
-        num_leds = steps // denominator
 
         if num_leds > 8:
             num_leds = 8
